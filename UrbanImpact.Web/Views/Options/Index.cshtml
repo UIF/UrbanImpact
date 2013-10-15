@@ -3,10 +3,22 @@
 @{
     ViewBag.Title = "Index";
 }
-<table class="table table-striped">
+<table class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Last Name</th>
+            <th>Middle Name</th>
+            <th>First Name</th>
+            <th>Bus Option</th>
+            <th>Comments</th>
+        </tr>
+    </thead>
+    <tbody>
     @foreach (var Option in Model)
     {
         <tr>
+            <td><a href="@Url.Action("Edit", "Options", new { id = Option.OptionsId })"><span class="glyphicon glyphicon-edit" title="Edit"></span></a></td>
             <td>@Option.Student.LastName</td>
             <td>@Option.Student.MiddleName</td>
             <td>@Option.Student.FirstName</td>
@@ -14,4 +26,5 @@
             <td>@Option.Comments</td>
         </tr>
     }
+    </tbody>
 </table>

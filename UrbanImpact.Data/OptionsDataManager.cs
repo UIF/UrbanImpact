@@ -10,9 +10,9 @@ namespace UrbanImpact.Data
     {
         public int OptionsId { get; set; }
         public int StudentId { get; set; }
-        public string StudentFirstName { get; set; }
-        public string StudentMiddleName { get; set; }
-        public string StudentLastName { get; set; }
+        public string FirstName { get; set; }
+        public string MiddleName { get; set; }
+        public string LastName { get; set; }
         public string BusOption { get; set; }
         public string Comments { get; set; }
     }
@@ -20,15 +20,16 @@ namespace UrbanImpact.Data
     {
         public List<Options> Get()
         {
-            string sql = "SELECT OptionsId, StudentId, StudentFirstName, StudentMiddleName, StudentLastName, BusOption, Comments FROM OptionsProgramNEW";
+            string sql = "SELECT OptionsId, s.StudentId, s.FirstName, s.MiddleName, s.LastName, BusOption, Comments " 
+                           + "FROM OptionsProgramNEW o JOIN StudentInformation s on s.StudentId = o.StudentId";
 
             // default is false, so a bad login will return false
             return UIFDataContext.ExecuteQuery<OptionsDataRow>(sql).Select(x => new Options() { 
                 Student = new People.Student() { 
                     StudentId = x.StudentId,
-                    FirstName = x.StudentFirstName, 
-                    MiddleName = x.StudentMiddleName, 
-                    LastName = x.StudentLastName },
+                    FirstName = x.FirstName, 
+                    MiddleName = x.MiddleName, 
+                    LastName = x.LastName },
                 OptionsId=x.OptionsId,
                 BusOption=x.BusOption,
                 Comments=x.Comments

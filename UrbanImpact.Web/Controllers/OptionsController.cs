@@ -21,5 +21,15 @@ namespace UrbanImpact.Web.Controllers
             }
         }
 
+        [Authorize]
+        public ActionResult Edit(int id = 0)
+        {
+            using (var dm = new OptionsDataManager())
+            {
+                var optionModel = dm.Get();
+                return null;
+            }
+        }
+
     }
 }
