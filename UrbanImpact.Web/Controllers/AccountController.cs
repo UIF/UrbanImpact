@@ -19,6 +19,12 @@ namespace UrbanImpact.Web.Controllers
             return View();
         }
 
+        [AllowAnonymous]
+        public ActionResult Logoff()
+        {
+            FormsAuthentication.SignOut();
+            return Redirect("~/");
+        }
 
         [HttpPost]
         [AllowAnonymous]
@@ -27,8 +33,14 @@ namespace UrbanImpact.Web.Controllers
         {
             using (AccountDataManager dm = new AccountDataManager())
             {
-                if (ModelState.IsValid && dm.Login(model.UserName, model.Password))
+                if (ModelState.IsValid)
                 {
+                    var staff = dm.Login(model.UserName, model.Password);
+
+                    Session["FirstName"] = staff.FirstName;
+                    Session["LastName"] = staff.LastName;
+                    Session["Department"] = staff.Department;
+
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
 
                     return RedirectToLocal(returnUrl);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UrbanImpact.Data;
 
 namespace UrbanImpact.Web.Controllers
 {
@@ -13,7 +14,11 @@ namespace UrbanImpact.Web.Controllers
         [Authorize]
         public ActionResult Index()
         {
-            return View();
+            using (var dm = new OptionsDataManager())
+            {
+                var listOfOptions = dm.Get();
+                return View(listOfOptions);
+            }
         }
 
     }

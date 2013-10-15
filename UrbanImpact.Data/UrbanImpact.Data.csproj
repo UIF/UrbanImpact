@@ -45,6 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountDataManager.cs" />
+    <Compile Include="OptionsDataManager.cs" />
+    <Compile Include="People\Staff.cs" />
+    <Compile Include="People\Student.cs" />
+    <Compile Include="Systems\Options.cs" />
     <Compile Include="UIFDataManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -60,6 +64,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

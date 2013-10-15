@@ -8,21 +8,10 @@ namespace System.Web.Mvc
 {
     public static class UIFExtensions
     {
-        static string UIFValidationSummary(this HtmlHelper helper, string validationMessage = "")
+        public static string OldSite(this HtmlHelper<dynamic> helper, string pageurl = "")
         {
-            string retVal = "";
-            if (helper.ViewData.ModelState.IsValid)
-                return "";
-            retVal += "<div class='alert alert-dismissable alert-danger'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;</button>";
-            if (!String.IsNullOrEmpty(validationMessage))
-                retVal += helper.Encode(validationMessage);
-            foreach (var key in helper.ViewData.ModelState.Keys)
-            {
-                foreach (var err in helper.ViewData.ModelState[key].Errors)
-                    retVal += "<p>" + helper.Encode(err.ErrorMessage) + "</p>";
-            }
-            retVal += "</div>";
-            return retVal.ToString();
+            return String.Format("http://localhost/uif/performingarts/{0}?Security=Good&lastname={1}&firstname={2}&Dept={3}",pageurl, HttpContext.Current.Session["LastName"], HttpContext.Current.Session["FirstName"], HttpContext.Current.Session["Department"]);
+        
         }
     }
 }
