@@ -20,16 +20,17 @@ namespace UrbanImpact.Web.Controllers
         }
 
         [AllowAnonymous]
-        public ActionResult Logoff()
+        public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
-            return Redirect("~/");
+            Session.Clear();
+            return Redirect("~/Account/Login");
         }
 
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(LoginModel model, string returnUrl)
+        public ActionResult Login(LoginModel model, string returnUrl = "")
         {
             using (AccountDataManager dm = new AccountDataManager())
             {
@@ -42,7 +43,10 @@ namespace UrbanImpact.Web.Controllers
                     Session["Department"] = staff.Department;
 
                     FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
-
+                    if (string.IsNullOrEmpty(returnUrl))
+                    {
+                       return Redirect(UIFExtensions.OldSite("MenuTest.aspx"));
+                    }
                     return RedirectToLocal(returnUrl);
                 }
             }
