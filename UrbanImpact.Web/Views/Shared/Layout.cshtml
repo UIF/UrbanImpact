@@ -93,13 +93,25 @@
     </ul>
   </div><!-- /.navbar-collapse -->
 </nav>
-    @if (User.Identity.IsAuthenticated)
-    {  
-        <ol class="breadcrumb">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Systems</a></li>
-            <li class="active">Options</li>
-        </ol>
+    @{
+        var breadCrumbs = ViewData["breadcrumbs"] as List<UrbanImpact.Web.Models.BreadCrumb>;        
+        if (User.Identity.IsAuthenticated && breadCrumbs != null && breadCrumbs.Count > 0)
+        {
+            breadCrumbs = breadCrumbs.OrderBy(x => x.OrderId).ToList();
+            <ol class="breadcrumb">
+                @for (int i = 0; i < breadCrumbs.Count; i++)
+                {
+                    if (i == breadCrumbs.Count - 1)
+                    {            
+                        <li class="active">@breadCrumbs[i].Text</li>
+                    }
+                    else
+                    {
+                        <li><a href="@breadCrumbs[i].Link">@breadCrumbs[i].Text</a></li>
+                    }                    
+                }
+            </ol>
+        }
     }
         @if (!@ViewData.ModelState.IsValid)
         {

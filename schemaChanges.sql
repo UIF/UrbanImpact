@@ -1,4 +1,4 @@
-alter table StudentInformation add StudentId int identity(1,1) not null
+alter table StudentInformation add StudentId int identity(1,1) not null primary key
 go
 
 truncate table OptionsProgramNEW
@@ -8,10 +8,12 @@ alter table OptionsProgramNEW drop column StudentMiddleName
 alter table OptionsProgramNEW drop column StudentLastName
 go
 
-alter table OptionsProgramNEW add StudentId int not null
+alter table OptionsProgramNEW add StudentId int not null 
 alter table OptionsProgramNEW add OptionsId int identity(1,1) not null
 go
 
+alter table OptionsProgramNEW
+	add constraint PK_OptionsProgramNEW_OptionsID primary key clustered (OptionsId)
 
 truncate table OptionsCareerTemplate
 alter table OptionsCareerTemplate drop PK_DuplicateStudents7843843985654

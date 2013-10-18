@@ -18,5 +18,10 @@ namespace System.Web.Mvc
         {
             return String.Format("{0}{1}?Security=Good&lastname={2}&firstname={3}&Dept={4}", ConfigurationManager.AppSettings["oldSiteBaseUrl"], pageUrl, HttpContext.Current.Session["LastName"], HttpContext.Current.Session["FirstName"], HttpContext.Current.Session["Department"]);
         }
+
+        public static string OldSiteHomeLink()
+        {
+            return String.Format("{0}{1}?Security=Good&lastname={2}&firstname={3}&Dept={4}", ConfigurationManager.AppSettings["oldSiteBaseUrl"], "menutest.aspx", HttpContext.Current.Session["LastName"], HttpContext.Current.Session["FirstName"], HttpContext.Current.Session["Department"]);
+        }
     }
 }
