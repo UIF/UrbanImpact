@@ -134,6 +134,7 @@
     <Content Include="Content\bootstrap\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap\bootstrap.css" />
     <Content Include="Content\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\css\uif.css" />
     <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\images\logo.png" />
     <Content Include="Content\themes\base\images\animated-overlay.gif" />
@@ -255,6 +256,11 @@
     <None Include="Scripts\jquery-2.0.3.min.map" />
     <Content Include="Views\Options\Index.cshtml" />
     <Content Include="Views\Options\Edit.cshtml" />
+    <Content Include="Views\Options\_college.cshtml" />
+    <Content Include="Views\Options\_trade.cshtml" />
+    <Content Include="Views\Options\_military.cshtml" />
+    <Content Include="Views\Options\_career.cshtml" />
+    <Content Include="Views\Options\_ministry.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

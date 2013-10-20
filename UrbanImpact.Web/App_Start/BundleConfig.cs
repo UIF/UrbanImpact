@@ -15,7 +15,11 @@ namespace UrbanImpact.Web.App_Start
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryui").Include(
                         "~/Scripts/jquery-ui-{version}.js"));
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/bootstrap/bootstrap.css","~/Content/bootstrap-theme.min.css", "~/Content/bootstrap-responsive.min.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include(
+                "~/Content/bootstrap/bootstrap.css",
+                "~/Content/bootstrap-theme.min.css", 
+                "~/Content/bootstrap-responsive.min.css",
+                "~/Content/css/uif.css"));
         }
     }
 }

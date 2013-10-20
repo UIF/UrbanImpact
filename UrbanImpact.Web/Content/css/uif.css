@@ -1,0 +1,9 @@
+﻿.tab-panel 
+{
+    padding: 10px;
+    border-left: 1px solid #dddddd;
+    border-bottom: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    margin-bottom: 20px;
+    border-radius: 0 0 4px 4px;
+}
