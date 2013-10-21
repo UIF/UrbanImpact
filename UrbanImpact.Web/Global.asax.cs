@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Web.Optimization;
 using UrbanImpact.Web.App_Start;
+using UrbanImpact.Data;
 
 namespace UrbanImpact.Web
 {
@@ -22,6 +23,19 @@ namespace UrbanImpact.Web
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+        }
+        protected void Session_Start()
+        {
+            if (User.Identity.IsAuthenticated)
+            {
+                using (AccountDataManager dm = new AccountDataManager())
+                {
+                    var staff = dm.GetStaff(User.Identity.Name);
+                    Session["FirstName"] = staff.FirstName;
+                    Session["LastName"] = staff.LastName;
+                    Session["Department"] = staff.Department;
+                }
+            }
         }
     }
 }

@@ -7,3 +7,9 @@
     margin-bottom: 20px;
     border-radius: 0 0 4px 4px;
 }
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus 
+{
+    font-weight: bold;
+}

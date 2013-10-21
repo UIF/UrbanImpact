@@ -3,38 +3,9 @@
 }   
 @section Scripts {
     <script type="text/javascript">
-        var chosenBus = "";
         $(document).ready(function () {
-            var $busSection = $('#busSection');
-            $busSection.hide();
-            $busSection.find('.tab-panel').hide();
-            $('#busButtonGroup button').click(function () {
-                var $me = $(this);
 
-                $me.siblings().removeClass('btn-primary').addClass('btn-default');
-                $me.removeClass('btn-default').addClass('btn-primary');
-                if (chosenBus == "") {
-                    $busSection.show();
-                    chosenBus = $me.attr('id');
-                    selectTab(chosenBus);
-                }
-            });
-            $('#busTabs li a').click(function () {
-                var $me = $(this);
-                debugger;
-                selectTab($me.parent().attr('rel'));
-                return false;
-            });
         });
-
-        function selectTab(tab) {
-            var $busSection = $('#busSection');
-            var $tab = $('#' + tab + 'Tab');
-            $tab.siblings().removeClass('active');
-            $tab.addClass('active');
-            $busSection.find('.tab-panel').hide();
-            $busSection.find('#' + tab + 'Pane').show();
-        }
     </script>
     }
 <h3>Student, Name</h3>
@@ -114,24 +85,27 @@
 </div>
 
 <div class="row" style="vertical-align: middle;">
-    <div class="col-md-6">
-        Please choose a bus: 
-        <div class="btn-group" id="busButtonGroup">
-          <button type="button" class="btn btn-default" id="college">College</button>
-          <button type="button" class="btn btn-default" id="trade">Trade</button>
-          <button type="button" class="btn btn-default" id="military">Military</button>
-          <button type="button" class="btn btn-default" id="career">Career</button>
-          <button type="button" class="btn btn-default" id="ministry">Ministry</button>
+    <div class="col-md-3">
+        <div class="form-group">
+            <label for="z">Primary Bus</label>
+            <select class="form-control">
+                <option>Please Choose</option>
+                <option>College</option>
+                <option>Trade</option>
+                <option>Military</option>
+                <option>Career</option>
+                <option>Ministry</option>
+            </select>
         </div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-9">
         <p class="text-right">
         <button type="submit" class="btn btn-primary btn-lg">Update Student Information</button>  
         </p>  
     </div>
 </div>
 
-<div id="busSection">
+@*<div id="busSection">
 <ul class="nav nav-tabs" id="busTabs">
   <li id="collegeTab" rel="college"><a href="#">College</a></li>
   <li id="tradeTab" rel="trade"><a href="#">Trade</a></li>
@@ -159,7 +133,7 @@
 <div class="tab-panel" id="ministryPane">
     @Html.Partial("_ministry")
 </div>
-</div>
+</div>*@
 
 <div class="panel panel-default">
   <!-- Default panel contents -->

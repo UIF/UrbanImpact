@@ -26,5 +26,17 @@ namespace UrbanImpact.Data
                         Department= x.Department
                     }).Single();
         }
+        public Staff GetStaff(string username)
+        {
+            string sql = "SELECT LastName, FirstName, Department from staffmembers where username = {0}";
+
+            // default is false, so a bad login will return false
+            return UIFDataContext.ExecuteQuery<Staff>(sql, username).Select(x => new Staff()
+            {
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Department = x.Department
+            }).Single();
+        }
     }
 }

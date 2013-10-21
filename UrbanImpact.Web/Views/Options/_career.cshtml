@@ -14,13 +14,21 @@
   <div class="col-md-2">
       <div class="form-group">
         <label for="x">H.S Activities List</label>
-        <input type="text" class="form-control input-sm" id="x">
+          <div class="input-group">
+              <span class="input-group-addon">
+                <input type="checkbox">
+              </span>
+            <input type="text" class="form-control input-sm" id="x">
+          </div>
       </div>
   </div>  
   <div class="col-md-2">
       <div class="form-group">
         <label for="x">H.S Honors List</label>
-        <input type="text" class="form-control input-sm" id="x">
+          <div class="input-group input-group-sm">
+            <span class="glyphicon glyphicon-calendar input-group-addon"> </span>
+            <input type="text" class="form-control" id="x" placeholder="Choose a date">
+          </div>
       </div>
   </div>  
   <div class="col-md-2">
@@ -61,6 +69,10 @@
                 <tr>
                     <td><input type="text" class="form-control input-sm" id="x"></td>
                     <td><input type="text" class="form-control input-sm" id="x"></td>
+                </tr>
+                <tr>
+                    <td><button type="submit" class="btn btn-default btn-sm">Add Application</button></td>
+                    <td></td>
                 </tr>
             </tbody>
         </table>
