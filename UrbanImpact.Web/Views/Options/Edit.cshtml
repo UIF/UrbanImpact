@@ -1,6 +1,42 @@
 ﻿@{
     ViewBag.Title = "Edit";
 }   
+@section Scripts {
+    <script type="text/javascript">
+        var chosenBus = "";
+        $(document).ready(function () {
+            var $busSection = $('#busSection');
+            $busSection.hide();
+            $busSection.find('.tab-panel').hide();
+            $('#busButtonGroup button').click(function () {
+                var $me = $(this);
+
+                $me.siblings().removeClass('btn-primary').addClass('btn-default');
+                $me.removeClass('btn-default').addClass('btn-primary');
+                if (chosenBus == "") {
+                    $busSection.show();
+                    chosenBus = $me.attr('id');
+                    selectTab(chosenBus);
+                }
+            });
+            $('#busTabs li a').click(function () {
+                var $me = $(this);
+                debugger;
+                selectTab($me.parent().attr('rel'));
+                return false;
+            });
+        });
+
+        function selectTab(tab) {
+            var $busSection = $('#busSection');
+            var $tab = $('#' + tab + 'Tab');
+            $tab.siblings().removeClass('active');
+            $tab.addClass('active');
+            $busSection.find('.tab-panel').hide();
+            $busSection.find('#' + tab + 'Pane').show();
+        }
+    </script>
+    }
 <h3>Student, Name</h3>
 <div class="row">
   <div class="col-md-2">
@@ -80,12 +116,12 @@
 <div class="row" style="vertical-align: middle;">
     <div class="col-md-6">
         Please choose a bus: 
-        <div class="btn-group">
-          <button type="button" class="btn btn-default">College</button>
-          <button type="button" class="btn btn-default">Trade</button>
-          <button type="button" class="btn btn-default">Military</button>
-          <button type="button" class="btn btn-default">Career</button>
-          <button type="button" class="btn btn-default">Ministry</button>
+        <div class="btn-group" id="busButtonGroup">
+          <button type="button" class="btn btn-default" id="college">College</button>
+          <button type="button" class="btn btn-default" id="trade">Trade</button>
+          <button type="button" class="btn btn-default" id="military">Military</button>
+          <button type="button" class="btn btn-default" id="career">Career</button>
+          <button type="button" class="btn btn-default" id="ministry">Ministry</button>
         </div>
     </div>
     <div class="col-md-6">
@@ -95,26 +131,34 @@
     </div>
 </div>
 
-<ul class="nav nav-tabs">
-  <li class="active"><a href="#">College</a></li>
-  <li><a href="#">Trade</a></li>
-  <li><a href="#">Military</a></li>
-  <li><a href="#">Career</a></li>
-  <li><a href="#">Ministry</a></li>
+<div id="busSection">
+<ul class="nav nav-tabs" id="busTabs">
+  <li id="collegeTab" rel="college"><a href="#">College</a></li>
+  <li id="tradeTab" rel="trade"><a href="#">Trade</a></li>
+  <li id="militaryTab" rel="military"><a href="#">Military</a></li>
+  <li id="careerTab" rel="career"><a href="#">Career</a></li>
+  <li id="ministryTab" rel="ministry"><a href="#">Ministry</a></li>
 </ul>
 
-<div class="tab-panel">
+<div class="tab-panel" id="collegePane">
+    @Html.Partial("_college")
+</div>
 
-@*@Html.Partial("_college")*@
+<div class="tab-panel" id="tradePane">
+    @Html.Partial("_trade")
+</div>
 
-@*@Html.Partial("_trade")*@
+<div class="tab-panel" id="militaryPane">
+    @Html.Partial("_military")
+</div>
 
-@*@Html.Partial("_military")*@
+<div class="tab-panel" id="careerPane">
+    @Html.Partial("_career")
+</div>
 
-@*@Html.Partial("_career")*@
-
-@Html.Partial("_ministry")
-
+<div class="tab-panel" id="ministryPane">
+    @Html.Partial("_ministry")
+</div>
 </div>
 
 <div class="panel panel-default">

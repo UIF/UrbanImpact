@@ -4,6 +4,8 @@
     <meta name="viewport" content="width=device-width" />
     <title>Urban Impact Foundation - @ViewBag.Title</title>
     @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery");
+    @RenderSection("scripts", required: false)
     @{
         var homeUrl = "#";
         if (User.Identity.IsAuthenticated)
@@ -125,7 +127,9 @@
                 }
             </div>
         }
+        <div id="#content">
         @RenderBody()
+        </div>
     </div>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/Scripts/bootstrap.min.js")
