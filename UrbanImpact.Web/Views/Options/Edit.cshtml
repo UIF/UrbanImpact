@@ -18,6 +18,17 @@
         <label for="comments">Comments</label>
         <textarea class="form-control" id="comments" rows="5"></textarea>
       </div>
+        <div class="form-group">
+            <label for="z">Primary Bus</label>
+            <select class="form-control">
+                <option>Please Choose</option>
+                <option>College</option>
+                <option>Trade</option>
+                <option>Military</option>
+                <option>Career</option>
+                <option>Ministry</option>
+            </select>
+        </div>
   </div>
   <div class="col-md-7">
   <label>General information</label>
@@ -38,12 +49,26 @@
             <div class="checkbox">
               <label>
                 <input type="checkbox" value="">
-                PA ID
+                PA ID Card
               </label>
             </div>    
             <div class="form-group">
-                <label for="z">Interviewed</label>
-                <input type="text" class="form-control input-sm" id="z">
+                <label for="z">Assessment Testing Completed</label>
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                      </span>
+                    <input type="text" class="form-control input-sm" id="x">
+                  </div>
+            </div>
+            <div class="form-group">
+                <label for="z">Primary Mentor</label>
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                      </span>
+                    <input type="text" class="form-control input-sm" id="x">
+                  </div>
             </div>
         </div>
         <div class="col-md-4">
@@ -64,41 +89,49 @@
                 <input type="checkbox" value="">
                 Social Security Card
               </label>
-            </div>            
+            </div>    
             <div class="form-group">
-                <label for="z">GPA</label>
-                <input type="text" class="form-control input-sm" id="z">
-            </div>   
-        </div>        
-        <div class="col-md-4">      
-            <div class="form-group">
-                <label for="z">HS Transcript</label>
-                <input type="text" class="form-control input-sm" id="z">
+                <label for="z"><BR />HS Transcript</label>
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                      </span>
+                    <input type="text" class="form-control input-sm" id="x">
+                  </div>
             </div>   
             <div class="form-group">
                 <label for="z">HS Graduation</label>
-                <input type="text" class="form-control input-sm" id="z">
+                  <div class="input-group">
+                      <span class="input-group-addon">
+                        <input type="checkbox">
+                      </span>
+                    <input type="text" class="form-control input-sm" id="x">
+                  </div>
             </div>
+                
+ 
+        </div>        
+        <div class="col-md-4">      
+                         <div class="panel panel-default">
+                  <div class="panel-heading">GPA</div>
+                  <div class="panel-body">
+                                <div class="form-group">
+                <label for="z">GPA</label>
+                <input type="text" class="form-control input-sm" id="z">
+            </div>  
+                        <div class="form-group">
+                <label for="z">Date</label>
+                <input type="text" class="form-control input-sm" id="z">
+            </div>  
+                  </div>
+                </div>   
         </div>
     </div>
   </div>
 </div>
 
 <div class="row" style="vertical-align: middle;">
-    <div class="col-md-3">
-        <div class="form-group">
-            <label for="z">Primary Bus</label>
-            <select class="form-control">
-                <option>Please Choose</option>
-                <option>College</option>
-                <option>Trade</option>
-                <option>Military</option>
-                <option>Career</option>
-                <option>Ministry</option>
-            </select>
-        </div>
-    </div>
-    <div class="col-md-9">
+    <div class="col-md-12">
         <p class="text-right">
         <button type="submit" class="btn btn-primary btn-lg">Update Student Information</button>  
         </p>  

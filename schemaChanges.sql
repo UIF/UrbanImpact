@@ -1,19 +1,36 @@
 alter table StudentInformation add StudentId int identity(1,1) not null primary key
 go
 
-truncate table OptionsProgramNEW
-alter table OptionsProgramNEW drop PK_DuplicateStudents5789
-alter table OptionsProgramNEW drop column StudentFirstName
-alter table OptionsProgramNEW drop column StudentMiddleName
-alter table OptionsProgramNEW drop column StudentLastName
-go
-
-alter table OptionsProgramNEW add StudentId int not null 
-alter table OptionsProgramNEW add OptionsId int identity(1,1) not null
-go
-
-alter table OptionsProgramNEW
-	add constraint PK_OptionsProgramNEW_OptionsID primary key clustered (OptionsId)
+create table Options (
+	OptionsId int not null primary key identity(1,1),
+	StudentId int not null,
+	PrimaryBus varchar(50) null,
+	Comment varchar(max) null,
+	DriversLicense bit null,
+	BirthCertificate bit null,
+	PaIDCard bit null,
+	HasGraduated bit null,
+	BankAccount bit null,
+	SocialSecurityCard bit null,
+	AssessmentTesting datetime null,
+	PrimaryMentor varchar(250) null,
+	HSTranscript datetime null,
+	HSGraduation datetime null,
+	GPA varchar(50) null,
+	GPADate datetime null,
+	LastUpdatedBy varchar(50) not null,
+	DateAdded datetime not null default getdate(),
+	DateModified datetime not null default getdate() 
+)
+create table ActivityLog (
+	ActivityId int not null primary key identity(1,1),
+	ActivityArea varchar(50) not null,
+	AreaId int not null,
+	ActivityEntry varchar(max),
+	LastUpdatedBy varchar(50) not null,
+	DateAdded datetime not null default getdate(),
+	DateModified datetime not null default getdate()
+)
 
 truncate table OptionsCareerTemplate
 alter table OptionsCareerTemplate drop PK_DuplicateStudents7843843985654
