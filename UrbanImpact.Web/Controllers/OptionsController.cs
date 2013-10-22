@@ -29,7 +29,7 @@ namespace UrbanImpact.Web.Controllers
             ViewData["breadcrumbs"] = BaseBreadCrumbs;
             using (var dm = new OptionsDataManager())
             {
-                var listOfOptions = dm.Get();
+                var listOfOptions = dm.GetList();
                 return View(listOfOptions);
             }
         }
@@ -40,11 +40,11 @@ namespace UrbanImpact.Web.Controllers
             var breadCrumbs = BaseBreadCrumbs;
             using (var dm = new OptionsDataManager())
             {
-                var optionModel = dm.Get();
+                var optionModel = dm.Get(id);
                 
-                breadCrumbs.Add(new BreadCrumb() { Text = "Student, Name", OrderId = 3 });
+                breadCrumbs.Add(new BreadCrumb() { Text = optionModel.Student.FullName, OrderId = 3 });
                 ViewData["breadcrumbs"] = breadCrumbs;
-                return View();
+                return View(optionModel);
             }
         }
 

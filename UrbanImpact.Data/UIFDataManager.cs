@@ -9,14 +9,14 @@ namespace UrbanImpact.Data
 {
     public class UIFDataManager : IDisposable
     {
-        private DataContext _dataContext = null;
+        private UIFDataContext _dataContext = null;
 
-        protected DataContext UIFDataContext
+        protected UIFDataContext UIFDataContext
         {
             get {
                 if (_dataContext == null)
                 {
-                    _dataContext = new DataContext(ConfigurationManager.ConnectionStrings["live"].ConnectionString);
+                    _dataContext = new UIFDataContext(ConfigurationManager.ConnectionStrings["live"].ConnectionString);
                 }
 
                 return _dataContext;            

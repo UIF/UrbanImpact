@@ -1,4 +1,5 @@
-﻿@{
+﻿@model UrbanImpact.Data.Systems.Options
+@{
     ViewBag.Title = "Edit";
 }   
 @section Scripts {
@@ -8,10 +9,10 @@
         });
     </script>
     }
-<h3>Student, Name</h3>
+<h3>@Model.Student.FullName</h3>
 <div class="row">
   <div class="col-md-2">
-    <img id="Image1" style="max-width: 100%;" src="https://studentinfo.urbanimpact.us/uif/StudentPictures/KyleWatts.jpg" />
+    <img id="Image1" style="max-width: 100%;" src="@Model.Student.PictureUrl" />
   </div>
   <div class="col-md-3">
       <div class="form-group">
@@ -182,12 +183,12 @@
         </tr>
     </thead>
     <tbody>
-    @for (int i = 0; i < 5; i++)
+    @foreach (var activityEntry in Model.ActivityEntries)
     {
         <tr>
-            <td>@DateTime.Now</td>
-            <td>Some Entry here</td>
-            <td>Some, User</td>
+            <td>@activityEntry.DateModified</td>
+            <td>@activityEntry.ActivityLog</td>
+            <td>@activityEntry.LastUpdatedBy</td>
         </tr>
     }
     </tbody>
