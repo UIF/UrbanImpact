@@ -4,8 +4,26 @@
 }   
 @section Scripts {
     <script type="text/javascript">
-        $(document).ready(function () {
+        $(document).ready(function ($) {
+            $('.datepicker').each(function () {
+                $(this).datepicker({
+                    onSelect: function () {
+                        var $me = $(this);
+                        $me.closest('.input-group').find(':checkbox').prop("checked", true);
+                    }
+                });
+            });
 
+            $('input.withcheck').each(function () {
+                var $me = $(this)
+                $me.blur(function () {
+                    var checkMe = false;
+                    if ($me && $me.val() != "")
+                        checkMe = true;
+
+                    $me.closest('.input-group').find(':checkbox').prop("checked", checkMe)
+                });
+            });
         });
     </script>
     }
@@ -95,7 +113,7 @@
             </div>  
                         <div class="form-group">
                 <label>Date</label>
-                @Html.TextBoxFor(m => m.GPADate, new { @class = "form-control input-sm" })
+                @Html.TextBoxFor(m => m.GPADate, new { @class = "form-control input-sm datepicker" })
             </div>  
                   </div>
                 </div>   

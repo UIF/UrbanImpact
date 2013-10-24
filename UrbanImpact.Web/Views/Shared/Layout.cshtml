@@ -3,8 +3,10 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Urban Impact Foundation - @ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/base/css")
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/jquery");
+    @Scripts.Render("~/bundles/jqueryui");
     @RenderSection("scripts", required: false)
     @{
         var homeUrl = "#";

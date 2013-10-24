@@ -1,7 +1,7 @@
 ﻿@model System.DateTime?
 <div class="input-group">
     <span class="input-group-addon">
-        @Html.CheckBoxFor(m => m.HasValue)
+        @Html.CheckBoxFor(m => m.HasValue, new { onclick = "return false" })
     </span>
-    @Html.TextBoxFor(m => m, new { @class = "form-control input-sm" })
+    @Html.TextBoxFor(m => m, "{0:d}", new { @class = "form-control input-sm datepicker withcheck" })
 </div>
