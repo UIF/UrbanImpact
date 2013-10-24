@@ -19,7 +19,7 @@ namespace UrbanImpact.Data.Systems
         public bool? HasGraduated { get; set; }
         public bool? BankAccount { get; set; }
         public bool? SocialSecurityCard { get; set; }
-        public DateTime? AssessMentTesting { get; set; }
+        public DateTime? AssessmentTesting { get; set; }
         public string PrimaryMentor { get; set; }
         public DateTime? HSTranscript { get; set; }
         public DateTime? HSGraduation { get; set; }

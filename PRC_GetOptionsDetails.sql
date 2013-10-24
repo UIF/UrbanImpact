@@ -4,7 +4,7 @@ GO
 CREATE PROCEDURE GetOptionsDetails 
     @OptionsID int
 AS 
-	select s.FirstName, s.LastName, o.PrimaryBus, o.Comment, o.DriversLicense,
+	select o.OptionsId, s.FirstName, s.LastName, s.PictureIdentification, o.PrimaryBus, o.Comment, o.DriversLicense,
 		   o.BirthCertificate, o.PaIDCard, o.HasGraduated, o.BankAccount,
 		   o.SocialSecurityCard, o.AssessmentTesting, o.PrimaryMentor,
 		   o.HSTranscript, o.HSGraduation, o.GPA, o.GPADate		   

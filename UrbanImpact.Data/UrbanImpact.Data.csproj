@@ -49,6 +49,7 @@
     <Compile Include="OptionsDataManager.cs" />
     <Compile Include="People\Staff.cs" />
     <Compile Include="People\Student.cs" />
+    <Compile Include="Systems\Bus.cs" />
     <Compile Include="Systems\Options.cs" />
     <Compile Include="UIFDataContext.cs" />
     <Compile Include="UIFDataManager.cs" />

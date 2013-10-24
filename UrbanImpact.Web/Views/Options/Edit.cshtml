@@ -16,19 +16,12 @@
   </div>
   <div class="col-md-3">
       <div class="form-group">
-        <label for="comments">Comments</label>
-        <textarea class="form-control" id="comments" rows="5"></textarea>
+        <label for="Comment">Comments</label>
+        <textarea class="form-control" id="Comment" name="Comment" rows="5"></textarea>
       </div>
         <div class="form-group">
             <label for="z">Primary Bus</label>
-            <select class="form-control">
-                <option>Please Choose</option>
-                <option>College</option>
-                <option>Trade</option>
-                <option>Military</option>
-                <option>Career</option>
-                <option>Ministry</option>
-            </select>
+            @Html.DropDownListFor(m => m.PrimaryBus, new SelectList(Enum.GetValues(typeof(UrbanImpact.Data.Systems.Bus))), "Please Choose", new { @class="form-control" })
         </div>
   </div>
   <div class="col-md-7">
@@ -37,77 +30,57 @@
         <div class="col-md-4">   
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("DriversLicense", Model.DriversLicense.HasValue ? Model.DriversLicense : false)
                 Drivers License
               </label>
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("BirthCertificate", Model.BirthCertificate.HasValue ? Model.BirthCertificate : false)
                 Birth Certificate
               </label>
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("PaIDCard", Model.PaIDCard.HasValue? Model.PaIDCard : false)
                 PA ID Card
               </label>
             </div>    
             <div class="form-group">
-                <label for="z">Assessment Testing Completed</label>
-                  <div class="input-group">
-                      <span class="input-group-addon">
-                        <input type="checkbox">
-                      </span>
-                    <input type="text" class="form-control input-sm" id="x">
-                  </div>
+                <label>Assessment Testing Completed</label>
+                @Html.EditorFor(m => m.AssessmentTesting, "DateCB")
             </div>
             <div class="form-group">
-                <label for="z">Primary Mentor</label>
-                  <div class="input-group">
-                      <span class="input-group-addon">
-                        <input type="checkbox">
-                      </span>
-                    <input type="text" class="form-control input-sm" id="x">
-                  </div>
+                <label>Primary Mentor</label>
+                @Html.EditorFor(m => m.PrimaryMentor, "TextCB")
             </div>
         </div>
         <div class="col-md-4">
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("HasGraduated", Model.HasGraduated.HasValue ? Model.HasGraduated : false)
                 Has Graduated?
               </label>
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("BankAccount", Model.BankAccount.HasValue ? Model.BankAccount : false)
                 Bank Account
               </label>
             </div>
             <div class="checkbox">
               <label>
-                <input type="checkbox" value="">
+                @Html.CheckBox("SocialSecurityCard", Model.SocialSecurityCard.HasValue ? Model.SocialSecurityCard : false)
                 Social Security Card
               </label>
             </div>    
             <div class="form-group">
-                <label for="z"><BR />HS Transcript</label>
-                  <div class="input-group">
-                      <span class="input-group-addon">
-                        <input type="checkbox">
-                      </span>
-                    <input type="text" class="form-control input-sm" id="x">
-                  </div>
+                <label><BR />HS Transcript</label>
+                @Html.EditorFor(m => m.HSTranscript, "DateCB")
             </div>   
             <div class="form-group">
-                <label for="z">HS Graduation</label>
-                  <div class="input-group">
-                      <span class="input-group-addon">
-                        <input type="checkbox">
-                      </span>
-                    <input type="text" class="form-control input-sm" id="x">
-                  </div>
+                <label>HS Graduation</label>
+                @Html.EditorFor(m => m.HSGraduation, "DateCB")
             </div>
                 
  
@@ -117,12 +90,12 @@
                   <div class="panel-heading">GPA</div>
                   <div class="panel-body">
                                 <div class="form-group">
-                <label for="z">GPA</label>
-                <input type="text" class="form-control input-sm" id="z">
+                <label>GPA</label>
+                @Html.TextBoxFor(m => m.GPA, new { @class = "form-control input-sm" })
             </div>  
                         <div class="form-group">
-                <label for="z">Date</label>
-                <input type="text" class="form-control input-sm" id="z">
+                <label>Date</label>
+                @Html.TextBoxFor(m => m.GPADate, new { @class = "form-control input-sm" })
             </div>  
                   </div>
                 </div>   

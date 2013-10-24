@@ -261,6 +261,8 @@
     <Content Include="Views\Options\_military.cshtml" />
     <Content Include="Views\Options\_career.cshtml" />
     <Content Include="Views\Options\_ministry.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateCB.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TextCB.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

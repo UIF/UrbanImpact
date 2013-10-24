@@ -24,7 +24,7 @@ namespace UrbanImpact.Data
         public bool? HasGraduated { get; set; }
         public bool? BankAccount { get; set; }
         public bool? SocialSecurityCard { get; set; }
-        public DateTime? AssessMentTesting { get; set; }
+        public DateTime? AssessmentTesting { get; set; }
         public string PrimaryMentor { get; set; }
         public DateTime? HSTranscript { get; set; }
         public DateTime? HSGraduation { get; set; }
@@ -79,7 +79,19 @@ namespace UrbanImpact.Data
                     PictureUrl = x.PictureIdentification
                 },
                 PrimaryBus = x.PrimaryBus,
-                Comment = x.Comment
+                Comment = x.Comment,
+                DriversLicense = x.DriversLicense,
+                BirthCertificate = x.BirthCertificate,
+                PaIDCard = x.PaIDCard,
+                HasGraduated = x.HasGraduated,
+                BankAccount = x.BankAccount,
+                SocialSecurityCard = x.SocialSecurityCard,
+                AssessmentTesting = x.AssessmentTesting,
+                PrimaryMentor = x.PrimaryMentor,
+                HSTranscript = x.HSTranscript,
+                HSGraduation = x.HSGraduation,
+                GPA = x.GPA,
+                GPADate = x.GPADate                
             }).Single();
 
             var activityList = results.GetResult<ActivityDataRow>().Select(x => new ActivityEntry()
